@@ -1,0 +1,84 @@
+var
+ // Seção de Declarações das variáveis
+   lista_A: vetor [1..7] de inteiro
+   x,inici,fim:inteiro
+inicio
+
+lista_A[1] := 22
+lista_A[2] := 10
+lista_A[3] := 22
+lista_A[4] := 9
+lista_A[5] := 42
+lista_A[6] := 61
+lista_A[7] := 13
+
+inici := 1
+fim := 7
+
+procedimento mergesort (inici, fim :inteiro)
+var
+meio: inteiro
+
+se (inici < fim)entao
+
+meio := (inici + fim) DIV 2
+
+
+dividir (inici, meio)
+
+dividir (meio+1, fim)
+
+mesclar (inici, meio, fim)
+
+fimse
+fimprocedimento
+
+procedimento merge (inici, meio, fim)
+var
+h, i, j, k: inteiro
+lista_B:vetor[1..7] de inteiro
+inicio
+h :=inici;
+j := meio+1;
+i :=inici;
+
+enquanto (h <= meio) e (j <= fim) faca
+se lista_A[h] <= lista_A[j] entao
+lista_B[i]:=lista_A[h];
+j:= j+1;
+fimse
+i:= i+1;
+fimenquanto
+ se h > meio entao
+      Para k de j ate fim faca
+         lista_B[i]:=   lista_A[k];
+         i:= i + 1;
+      fimpara
+   senao
+      Para k de h ate meio faca
+         lista_B[i]:=   lista_A[k];
+         i:= i + 1;
+      fimpara
+   fimse
+   para k de inici ate fim faca
+      lista_A[k]:= lista_B[k];
+   fimpara
+fimprocedimento
+
+
+//--------------------------------------------------------
+
+
+algoritmo Mergesort(inici, fim )
+
+para x de 1 ate 7 faca
+   escreva (   vetor_inicial[x])
+fimpara
+fimalgoritmo
+© 2021 GitHub, Inc.
+
+
+
+
+
+Fimalgoritmo
